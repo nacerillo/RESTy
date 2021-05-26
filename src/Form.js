@@ -4,31 +4,37 @@ class Form extends React.Component {
   constructor(props) {
     super(props); // for now, just do this
     this.state = {
-      words: "input here",
+      url: "input here",
       method: null,
+      results: "",
     };
   }
 
   handleChange = (e) => {
-    let words = e.target.value;
-    this.setState({ words });
+    let url = e.target.value;
+    this.setState({ url });
   };
   handleSelect = (e) => {
     e.preventDefault();
     let method = e.target.value;
     this.setState({ method });
   };
-
-  handleClick = (e) => {
+  //https://swapi.dev/api/people/
+  handleSubmit = async (e) => {
     e.preventDefault();
-    let words = this.state.words.split("").reverse().join("");
-    this.setState({ words });
+    let rawData = await fetch(this.state.url, { method: this.state.method });
+    let data = await rawData.json();
+    let header = "blahblah";
+    let results = JSON.stringify(data, null, "\t");
+    console.log("REACHED", rawData.body);
+    //this.setState({ url });
+    this.props.handler(header, results);
   };
 
   render() {
     return (
       <div>
-        <div>
+        <form onSubmit={this.handleSubmit}>
           <div id="method_select">
             <label for="put">
               PUT
@@ -37,7 +43,7 @@ class Form extends React.Component {
                 type="radio"
                 id="put"
                 name="method"
-                value="put"
+                value="PUT"
               ></input>
             </label>
 
@@ -48,7 +54,7 @@ class Form extends React.Component {
                 type="radio"
                 id="post"
                 name="method"
-                value="post"
+                value="POST"
               ></input>
             </label>
 
@@ -59,7 +65,7 @@ class Form extends React.Component {
                 type="radio"
                 id="get"
                 name="method"
-                value="get"
+                value="GET"
               ></input>
             </label>
 
@@ -70,23 +76,20 @@ class Form extends React.Component {
                 type="radio"
                 id="delete"
                 name="method"
-                value="delete"
+                value="DELETE"
               ></input>
             </label>
           </div>
-        </div>
-        <div id="url_input">
-          <lable>
-            URL:
-            <input type="text" onChange={this.handleChange} />
-          </lable>
-          <button id="mybutton" onClick={this.handleClick}>
-            Go!
-          </button>
-        </div>
-        <section id="output_field">
-          {this.state.words} {this.state.method}
-        </section>
+          <div id="url_input">
+            <lable>
+              URL:
+              <input type="text" onChange={this.handleChange} />
+            </lable>
+            <button id="mybutton" type="submit">
+              Go!
+            </button>
+          </div>
+        </form>
       </div>
     );
   }
