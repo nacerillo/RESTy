@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       results: [],
-      header: "",
+      count: 0,
     };
   }
 
@@ -23,7 +23,7 @@ class App extends React.Component {
       <React.Fragment>
         <Header />
         <Form handler={this.handleForm} />
-        <Results header={this.state.header} response={this.state.results} />
+        <Results response={this.state.results} />
         <Footer />
       </React.Fragment>
     );

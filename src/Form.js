@@ -6,7 +6,6 @@ class Form extends React.Component {
     this.state = {
       url: "input here",
       method: null,
-      results: "",
     };
   }
 
@@ -24,11 +23,11 @@ class Form extends React.Component {
     e.preventDefault();
     let rawData = await fetch(this.state.url, { method: this.state.method });
     let data = await rawData.json();
-    let header = "blahblah";
-    let results = JSON.stringify(data, null, "\t");
-    console.log("REACHED", rawData.body);
+    let count = data.count;
+    let results = data;
+    //console.log("REACHED", rawData.body);
     //this.setState({ url });
-    this.props.handler(header, results);
+    this.props.handler(count, results);
   };
 
   render() {
