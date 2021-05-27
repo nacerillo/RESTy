@@ -6,19 +6,17 @@ class Form extends React.Component {
     this.state = {
       url: "input here",
       method: null,
-      history: [],
-      counter: 1,
     };
   }
 
   handleChange = (e) => {
     let url = e.target.value;
-    this.setState({ url });
+    this.setState({ url: url });
   };
   handleSelect = (e) => {
     e.preventDefault();
     let method = e.target.value;
-    this.setState({ method });
+    this.setState({ method: method });
   };
   //https://swapi.dev/api/people/
   handleSubmit = async (e) => {
@@ -26,14 +24,9 @@ class Form extends React.Component {
 
     let rawData = await fetch(this.state.url, { method: this.state.method });
     let data = await rawData.json();
-    let count = data.count;
     let url = this.state.url;
     let method = this.state.method;
-    sessionStorage.setItem(this.state.counter, `${method} ${url}`);
-
-    let counter = this.state.counter + 1;
-    this.setState({ counter });
-    this.props.handler(count, data, url, method);
+    this.props.handler(data, url, method);
   };
 
   render() {

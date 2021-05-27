@@ -4,12 +4,28 @@ import "../scss/history.scss";
 class History extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      logHistory: this.props.history,
+    };
   }
 
   render() {
-    console.log("REACHED", this.props.history);
-    return <section id="history">{this.props.history}</section>;
+    return (
+      <section id="history">
+        {this.state.logHistory.map((item, idx) => {
+          return (
+            <>
+              <p>
+                <button id={idx} type="submit" className="history_button">
+                  {item[0]}
+                </button>
+                {item[1]}
+              </p>
+            </>
+          );
+        })}
+      </section>
+    );
   }
 }
 export default History;
