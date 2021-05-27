@@ -19,8 +19,8 @@ class App extends React.Component {
   }
 
   handleForm = (results, method, url) => {
-    console.log("HANDLE REACHED");
-
+    //console.log("HANDLE REACHED");
+    this.setState({ show: true });
     let history_current = this.state.history;
     let history_log = [url, method];
     history_current.push(history_log);
@@ -30,10 +30,10 @@ class App extends React.Component {
       method,
       url,
       history: history_current,
-      show: true,
+      show: false,
     });
     //  sessionStorage.setItem(this.state.counter, `${method} ${url}`)
-    console.log(this.state.history);
+    // console.log(this.state.history);
   };
 
   render() {
@@ -41,11 +41,10 @@ class App extends React.Component {
       <React.Fragment>
         <Header />
         <Form handler={this.handleForm} />
-        <Results response={this.state.results} />
+        <Results response={this.state.results} show={this.state.show} />
         <If condition={this.state.history.length > 0}>
           <History history={this.state.history} />
         </If>
-
         <Footer />
       </React.Fragment>
     );
