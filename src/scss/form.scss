@@ -5,23 +5,31 @@ body {
 
   #method_select {
     margin: auto;
-    width: 50%;
+    width: 30%;
     display: flex;
     flex-direction: row;
+    float: left;
     justify-content: space-between;
   }
   #url_input {
-    text-align: center;
+    text-align: left;
     input {
-      width: 20%;
+      margin: 10px;
+      width: 80%;
     }
   }
 
   #output_field {
-    margin: auto;
+    float: right;
+    margin: 10px;
     background-color: white;
-    width: 60%;
+    width: 50%;
     height: 500px;
     overflow: scroll;
+  }
+
+  #body_input {
+    rows: 1vw;
+    cols: 0.5vw;
   }
 }

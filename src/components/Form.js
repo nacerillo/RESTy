@@ -1,5 +1,6 @@
 import React from "react";
 import "../scss/form.scss";
+import { If, Then } from "react-if";
 class Form extends React.Component {
   constructor(props) {
     super(props); // for now, just do this
@@ -21,7 +22,6 @@ class Form extends React.Component {
   //https://swapi.dev/api/people/
   handleSubmit = async (e) => {
     e.preventDefault();
-
     let rawData = await fetch(this.state.url, { method: this.state.method });
     let data = await rawData.json();
     let url = this.state.url;
@@ -33,6 +33,16 @@ class Form extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+          <section id="url_input">
+            <lable>
+              URL:
+              <input type="text" onChange={this.handleChange} />
+            </lable>
+            <button id="mybutton" type="submit">
+              Go!
+            </button>
+          </section>
+
           <div id="method_select">
             <label for="put">
               PUT
@@ -78,15 +88,9 @@ class Form extends React.Component {
               ></input>
             </label>
           </div>
-          <div id="url_input">
-            <lable>
-              URL:
-              <input type="text" onChange={this.handleChange} />
-            </lable>
-            <button id="mybutton" type="submit">
-              Go!
-            </button>
-          </div>
+          <section>
+            <textarea type="submit" id="body_input"></textarea>
+          </section>
         </form>
       </div>
     );
