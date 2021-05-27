@@ -1,11 +1,13 @@
 import React from "react";
-import "./scss/form.scss";
+import "../scss/form.scss";
 class Form extends React.Component {
   constructor(props) {
     super(props); // for now, just do this
     this.state = {
       url: "input here",
       method: null,
+      history: [],
+      counter: 1,
     };
   }
 
@@ -21,13 +23,17 @@ class Form extends React.Component {
   //https://swapi.dev/api/people/
   handleSubmit = async (e) => {
     e.preventDefault();
+
     let rawData = await fetch(this.state.url, { method: this.state.method });
     let data = await rawData.json();
     let count = data.count;
-    let results = data;
-    //console.log("REACHED", rawData.body);
-    //this.setState({ url });
-    this.props.handler(count, results);
+    let url = this.state.url;
+    let method = this.state.method;
+    sessionStorage.setItem(this.state.counter, `${method} ${url}`);
+
+    let counter = this.state.counter + 1;
+    this.setState({ counter });
+    this.props.handler(count, data, url, method);
   };
 
   render() {

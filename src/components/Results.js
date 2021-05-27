@@ -1,6 +1,6 @@
 import React from "react";
 import ReactJson from "react-json-view";
-import "./scss/form.scss";
+import "../scss/form.scss";
 
 class Results extends React.Component {
   constructor(props) {
