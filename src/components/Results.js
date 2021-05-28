@@ -13,6 +13,11 @@ const Results = (props) => {
       </Then>
       <Else>
         <section id="output_field">
+          <label>HEADER</label>
+          <br></br>
+          <ReactJson src={props.headers} />
+          <label>RESULTS</label>
+          <br></br>
           <ReactJson src={props.response} />
         </section>
       </Else>
