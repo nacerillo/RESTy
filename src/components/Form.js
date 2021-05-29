@@ -12,7 +12,7 @@ class Form extends React.Component {
     };
   }
 
-  handleChange = (e) => {
+  handleURL = (e) => {
     let url = e.target.value;
     this.setState({ url: url });
   };
@@ -32,7 +32,7 @@ class Form extends React.Component {
   //https://swapi.dev/api/people/
   handleSubmit = async (e) => {
     e.preventDefault();
-    let rawData;
+    /*let rawData;
     let results;
     let url;
     let method;
@@ -74,7 +74,8 @@ class Form extends React.Component {
     } catch (err) {
       console.log(rawData);
       console.log("Huston, we have a problem...");
-    }
+    }*/
+    this.props.handler(e, this.state.url, this.state.method, this.state.body);
   };
 
   render() {
@@ -84,7 +85,7 @@ class Form extends React.Component {
           <section id="url_input">
             <lable>
               URL:
-              <input type="text" onChange={this.handleChange} />
+              <input type="text" onChange={this.handleURL} />
             </lable>
             <button id="mybutton" type="submit">
               Go!

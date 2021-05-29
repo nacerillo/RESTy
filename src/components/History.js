@@ -8,7 +8,14 @@ class History extends React.Component {
       logHistory: this.props.history,
     };
   }
+  handleClick = (e) => {
+    e.preventDefault();
 
+    let idx = e.target.id;
+    let search = this.state.logHistory[idx];
+    console.log(search);
+    this.props.handler(e, search[0], search[1], search[2]);
+  };
   render() {
     return (
       <section id="history">
@@ -16,10 +23,15 @@ class History extends React.Component {
           return (
             <>
               <p>
-                <button id={idx} type="submit" className="history_button">
-                  {item[0]}
+                <button
+                  id={idx}
+                  type="submit"
+                  className="history_button"
+                  onClick={this.handleClick}
+                >
+                  {item[1]}
                 </button>
-                {item[1]}
+                {item[0]}
               </p>
             </>
           );
