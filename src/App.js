@@ -21,6 +21,17 @@ class App extends React.Component {
     };
   }
 
+  containsLog = (array, entry) => {
+    // let contains = false;
+    for (let i = 0; i < array.length; i++) {
+      let a = JSON.stringify(array[i]);
+      let b = JSON.stringify(entry);
+      if (a === b) {
+        return true;
+      }
+    }
+    return false;
+  };
   handleForm = async (e, url, method, body) => {
     //console.log("HANDLE REACHED");
     /*this.setState({ show: true });
@@ -35,6 +46,7 @@ class App extends React.Component {
       headers,
       history: history_current,
     });*/
+    console.log("Current Histroy", this.state.history);
     e.preventDefault();
     this.setState({ show: true });
     try {
@@ -69,11 +81,19 @@ class App extends React.Component {
       }
 
       let history_log = [url, method, body];
-      if (!this.state.history.includes(history_log)) {
+      //console.log("History Log", history_log);
+
+      if (!this.containsLog(this.state.history, history_log)) {
+        console.log("Not Yet Contained");
         let current_history = this.state.history;
         current_history.push(history_log);
         this.setState({ history: current_history });
       }
+      /*if (!this.state.history.includes(history_log)) {
+        let current_history = this.state.history;
+        current_history.push(history_log);
+        this.setState({ history: current_history });
+      }*/
       this.setState({
         results,
         url,
@@ -82,7 +102,7 @@ class App extends React.Component {
       });
     } catch (err) {
       console.log(err);
-      console.log("Houston, We have a problem");
+      console.log("Houston, we have a problem");
     }
 
     //  sessionStorage.setItem(this.state.counter, `${method} ${url}`)
