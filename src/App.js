@@ -1,10 +1,12 @@
 import React from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
-import Form from "./components/Form";
-import Results from "./components/Results";
-import History from "./components/History";
+import Form from "./components/Form/Form.js";
+import Results from "./components/Results/Results.js";
+import History from "./components/History/History";
+import Help from "./components/Help/Help";
 import { If, Then } from "react-if";
+import "./scss/app.scss";
 import axios from "axios";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 class App extends React.Component {
@@ -33,19 +35,6 @@ class App extends React.Component {
     return false;
   };
   handleForm = async (e, url, method, body) => {
-    //console.log("HANDLE REACHED");
-    /*this.setState({ show: true });
-    let history_current = this.state.history;
-    let history_log = [url, method];
-    history_current.push(history_log);
-    this.setState({ history: history_current });
-    this.setState({
-      results,
-      url,
-      method,
-      headers,
-      history: history_current,
-    });*/
     console.log("Current Histroy", this.state.history);
     e.preventDefault();
     this.setState({ show: true });
@@ -116,25 +105,34 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/">
             <Form handler={this.handleForm} />
-            <If condition={this.state.show === true}>
-              <Then>
-                <Results
-                  response={this.state.results}
-                  headers={this.state.headers}
-                />
-              </Then>
-            </If>
+            <div className="home">
+              <If condition={this.state.show === true}>
+                <Then>
+                  <Results
+                    response={this.state.results}
+                    headers={this.state.headers}
+                  />
+                </Then>
+              </If>
 
-            <If condition={this.state.history.length > 0}>
-              <History history={this.state.history} handler={this.handleForm} />
-            </If>
+              <If condition={this.state.history.length > 0}>
+                <History
+                  history={this.state.history}
+                  handler={this.handleForm}
+                />
+              </If>
+            </div>
           </Route>
           <Route path="/history">
             <If condition={this.state.history.length > 0}>
               <History history={this.state.history} handler={this.handleForm} />
             </If>
           </Route>
+          <Route path="/help">
+            <Help />
+          </Route>
         </Switch>
+
         <Footer />
       </BrowserRouter>
     );

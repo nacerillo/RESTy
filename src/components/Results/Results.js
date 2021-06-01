@@ -1,6 +1,6 @@
 import React from "react";
 import ReactJson from "react-json-view";
-import "../scss/form.scss";
+import "./Results.scss";
 import { Spinner } from "react-spinners-css";
 import { If, Then, Else } from "react-if";
 const Results = (props) => {

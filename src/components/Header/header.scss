@@ -1,7 +1,26 @@
 header {
   h1 {
     text-align: center;
+  }
+  color: white;
+  background-color: black;
+  ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  li {
+    float: left;
+    margin: 10px;
+  }
+  li a {
+    padding: 15px;
     color: white;
-    background-color: black;
+  }
+  a:hover {
+    background-color: grey;
   }
 }
