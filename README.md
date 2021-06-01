@@ -73,4 +73,4 @@ Update the RESTy application as follows:
 
 ## Diagram
 
-- ![alt text]("src/assets/Screen Shot 2021-06-01 at 8.33.59 AM.png")
+![alt text]("src/assets/Screen Shot 2021-06-01 at 8.33.59 AM.png")
