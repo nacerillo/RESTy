@@ -73,4 +73,4 @@ Update the RESTy application as follows:
 
 ## Diagram
 
-![alt text](src/assets/Screen Shot 2021-06-01 at 8.33.59 AM.png)
+![alt text](https://github.com/nacerillo/resty/blob/dav2/src/assets/Screen%20Shot%202021-06-01%20at%208.33.59%20AM.png)
