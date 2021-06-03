@@ -1,7 +1,5 @@
 import React from "react";
 import "./form.scss";
-import { If, Then } from "react-if";
-import axios from "axios";
 class Form extends React.Component {
   constructor(props) {
     super(props); // for now, just do this

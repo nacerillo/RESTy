@@ -67,6 +67,9 @@ class App extends React.Component {
           headers = rawData.headers;
           results = rawData.data;
           break;
+
+        default:
+          return;
       }
 
       let history_log = [url, method, body];
