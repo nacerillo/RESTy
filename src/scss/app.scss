@@ -1,0 +1,10 @@
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+.home {
+  display: flex;
+  flex-direction: row-reverse;
+}
+@media (max-width: 800px) {
+  .home {
+    flex-direction: column;
+  }
+}

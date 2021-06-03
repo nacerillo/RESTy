@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# LAB - Class 29
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project: RESTy
 
-## Available Scripts
+Author: Nicholas Cerillo
 
-In the project directory, you can run:
+### LAB - Routing
 
-### `npm start`
+RESTy Phase 4: Add routing and conditional rendering to RESTy
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Before you begin
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Refer to Getting Started in the lab submission instructions for complete setup, configuration, deployment, and submission instructions.
 
-### `npm test`
+Continue working in your ‘resty’ repository, in a branch called ‘composition’
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Business Requirements
 
-### `npm run build`
+Refer to the RESTy System Overview for a complete review of the application, including Business and Technical requirements along with the development roadmap.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Phase 4 Requirements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In this final phase of the RESTy build, we will be adding some more fidelity to the application, including a menu with a ore detailed view of our history, as well as an about us page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The following user stories detail the major functionality for this phase of the project.
 
-### `npm run eject`
+- As a user, I want to see all of my previous queries as a separate page so that I can browse them in greater detail
+- As a user, I would like to view a separate “Help” page so I can learn how the application works
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Technical Requirements / Note
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Update the RESTy application as follows:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Add a menu bar to the header
+- Link labeled “Home” that links to ‘/’ and shows the search form/results page
+- Link labeled “History” that links to ‘/history’ and loads the history page
+- Link labeled “Help” that links to ‘/help’ and loads the about us page
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Home Page
 
-## Learn More
+- Add a simple history list to the left side of the application
+- List all previous queries, showing the method and the URL
+- When a user clicks a previous query, populate the RESTy forms with the query information
+- Completely hide the output area (Headers & Results) when there are none to display
+- Display any fetch/load errors in place of the results area, if they occur
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Add a “Loading” indicator while fetching
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- When the user clicks the “Go!” button, show a loading icon on the page
+- When the fetching of results is complete, remove the loading icon and show the results
 
-### Code Splitting
+#### History Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Maintain a list of every unique and successful API call the user has made
+- On the History page, show a list of ever previous API call
+- Clicking on an entry shows the full details of that query in a separate section on the page
 
-### Analyzing the Bundle Size
+#### URL, Method, Body
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Optionally, you can store other metadata about the query (time ran, bytes returned, etc) to show your users
+- Show a button labeled “Re-Run” that would execute that API call again and shows the home page with the form pre-filled
 
-### Making a Progressive Web App
+#### Help Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Display static content detailing how a user should use the ReSTY application
 
-### Advanced Configuration
+## Links and Resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Setup
 
-### Deployment
+- How to initialize application
+  `npm start`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Diagram
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![alt text](https://github.com/nacerillo/resty/blob/dav2/src/assets/Screen%20Shot%202021-06-01%20at%208.33.59%20AM.png)

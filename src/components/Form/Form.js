@@ -1,7 +1,5 @@
 import React from "react";
-import "../scss/form.scss";
-import { If, Then } from "react-if";
-import axios from "axios";
+import "./form.scss";
 class Form extends React.Component {
   constructor(props) {
     super(props); // for now, just do this
@@ -12,7 +10,7 @@ class Form extends React.Component {
     };
   }
 
-  handleChange = (e) => {
+  handleURL = (e) => {
     let url = e.target.value;
     this.setState({ url: url });
   };
@@ -32,49 +30,7 @@ class Form extends React.Component {
   //https://swapi.dev/api/people/
   handleSubmit = async (e) => {
     e.preventDefault();
-    let rawData;
-    let results;
-    let url;
-    let method;
-    let headers;
-    let body;
-    try {
-      method = this.state.method;
-      url = this.state.url;
-      body = this.state.body;
-      switch (method) {
-        case "GET":
-          rawData = await axios.get(url);
-          headers = rawData.headers;
-          results = rawData.data;
-          // console.log("HEADERS", headers);
-          break;
-        case "DELETE":
-          rawData = await axios.delete(url);
-          console.log(rawData);
-          if (rawData.status === 204) {
-            headers = { delete: "Worked!" };
-            results = { delete: "Worked!" };
-          }
-          break;
-        case "PUT":
-          rawData = await axios.put(url, { body });
-          headers = rawData.headers;
-          results = rawData.data;
-          break;
-        case "POST":
-          rawData = await axios.post(url, { body });
-          headers = rawData.headers;
-          results = rawData.data;
-          break;
-      }
-      //rawData = await fetch(url, { method: method });
-      //data = await rawData.json();
-      this.props.handler(results, url, method, headers);
-    } catch (err) {
-      console.log(rawData);
-      console.log("Huston, we have a problem...");
-    }
+    this.props.handler(e, this.state.url, this.state.method, this.state.body);
   };
 
   render() {
@@ -84,7 +40,7 @@ class Form extends React.Component {
           <section id="url_input">
             <lable>
               URL:
-              <input type="text" onChange={this.handleChange} />
+              <input type="text" onChange={this.handleURL} />
             </lable>
             <button id="mybutton" type="submit">
               Go!
