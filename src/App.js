@@ -108,7 +108,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/">
             <Form handler={this.handleForm} />
-            <div className="home">
+            <div className="container">
               <If condition={this.state.show === true}>
                 <Then>
                   <Results
@@ -126,7 +126,7 @@ class App extends React.Component {
             </div>
           </Route>
           <Route path="/history">
-            <div className = "home">
+            <div className = "container">
             <If condition={this.state.history.length > 0}>
               <History history={this.state.history} handler={this.handleForm} />
             </If>

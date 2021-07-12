@@ -3,14 +3,6 @@ $bgColor: rgb(204, 200, 200);
 body {
   background: $bgColor;
 
-  #method_select {
-    margin: auto;
-    width: 30%;
-    display: flex;
-    flex-direction: row;
-    float: left;
-    justify-content: space-between;
-  }
   #url_input {
     text-align: left;
     input {

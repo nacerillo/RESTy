@@ -36,70 +36,54 @@ class Form extends React.Component {
 
   render() {
     return (
-      <div>
-        <form class = "form" onSubmit={this.handleSubmit}>
-          <section id="url_input">
-            <lable>
-              URL:
-              <input type="text" onChange={this.handleURL} />
-            </lable>
-            <button id="mybutton" type="submit" disabled={!this.state.selectionMade}>
-              Go!
-            </button>
-          </section>
-
+      <div className = "form-container">
           <div id="method_select">
-            <label for="put">
-              PUT
-              <input
-                onChange={this.handleSelect}
-                type="radio"
+              <button
+                onClick={this.handleSelect}
                 id="put"
                 name="method"
-                value="PUT"
-              ></input>
-            </label>
 
-            <label for="post">
-              POST
-              <input
-                onChange={this.handleSelect}
-                type="radio"
+                className="method"
+                value="PUT">PUT</button>
+
+              <button
+                onClick={this.handleSelect}
                 id="post"
                 name="method"
-                value="POST"
-              ></input>
-            </label>
+                className="method"
+                value="POST">POST</button>
 
-            <label for="get">
-              GET
-              <input
-                onChange={this.handleSelect}
-                type="radio"
+              <button
+                onClick={this.handleSelect}
                 id="get"
                 name="method"
-                value="GET"
-              ></input>
-            </label>
+                className="method"
 
-            <label for="delete">
-              DELETE
-              <input
-                onChange={this.handleSelect}
-                type="radio"
+                value="GET">GET</button>
+           
+              <button
+                onClick={this.handleSelect}
                 id="delete"
                 name="method"
-                value="DELETE"
-              ></input>
-            </label>
+                className="method"
+                value="DELETE">DELETE</button>      
           </div>
-          <section>
+        <form className = "form" onSubmit={this.handleSubmit}>
+          <div id="url_input">
+              <input type="text" onChange={this.handleURL} placeholder = "api/url" />
+        
+  
+            <button id="go_button" type="submit" disabled={!this.state.selectionMade}>
+              Go!
+            </button>
+          </div>  
+          <div>
             <textarea
               type="submit"
               id="body_input"
               onChange={this.handleBody}
             ></textarea>
-          </section>
+          </div>
         </form>
       </div>
     );

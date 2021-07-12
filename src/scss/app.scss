@@ -6,9 +6,12 @@ body {
 }
 
 .container {
+  h2{
+    text-align: center;
+  }
   width: 80%;
-  //display: flex;
-  flex: 1 0 auto;
+  display: flex;
+  flex-direction: row;
   margin: auto;
   margin-top: 4rem;
 }

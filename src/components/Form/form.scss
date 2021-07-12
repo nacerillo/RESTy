@@ -2,38 +2,65 @@ $bgColor: rgb(204, 200, 200);
 
 body {
   background: $bgColor;
+  margin: auto;
 
-  #method_select {
-    margin: auto;
-    width: 30%;
-    display: flex;
-    flex-direction: row;
-    float: left;
-    justify-content: space-between;
-  }
-  #url_input {
+.form-container {
+  align-content: center;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+.form{
+  width: 50%;
+}
+
+
+.method{
+  border: none;
+  border-radius: 2px;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.method:hover{
+  background-color: grey;
+  cursor: pointer;
+}
+.method:focus{
+  background-color: hotpink;
+}
+
+
+
+#url_input {
     text-align: left;
     input {
-      margin: 10px;
-      width: 80%;
+      margin: 2rem;
+      width: 50%;
+      height:2rem;
+
     }
-  #mybutton:hover {
+  #go:hover {
     background-color: grey;
   }
-  }
+}
 
-  #output_field {
+
+#output_field {
     margin: 10px;
     width: 50%;
     height: 500px;
-  }
-  #div_output {
+}
+
+#div_output {
     background-color: white;
     overflow: scroll;
-  }
+}
 
-  #body_input {
+#body_input {
     rows: 1vw;
     cols: 0.5vw;
-  }
+}
+
 }
