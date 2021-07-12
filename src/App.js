@@ -117,7 +117,6 @@ class App extends React.Component {
                   />
                 </Then>
               </If>
-
               <If condition={this.state.history.length > 0}>
                 <History
                   history={this.state.history}
@@ -127,9 +126,11 @@ class App extends React.Component {
             </div>
           </Route>
           <Route path="/history">
+            <div className = "home">
             <If condition={this.state.history.length > 0}>
               <History history={this.state.history} handler={this.handleForm} />
             </If>
+            </div>
           </Route>
           <Route path="/help">
             <Help />

@@ -10,16 +10,20 @@ button {
   text-align: center;
 }
 .GET {
-  background-color: blue;
+  background-color: rgb(141, 141, 248);
+  padding: 10px;
 }
 .POST {
-  background-color: green;
+  background-color: rgb(140, 248, 140);
+  padding: 10px;
 }
 .DELETE {
-  background-color: red;
+  background-color: rgb(243, 142, 142);
+  padding: 10px;
 }
 .PUT {
-  background-color: orange;
+  background-color: rgb(247, 206, 129);
+  padding: 10px;
 }
 .details {
   border: none;

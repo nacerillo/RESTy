@@ -17,9 +17,10 @@ class History extends React.Component {
     console.log("Hello");
     this.setState({ open: !this.state.open });
   };
+
   handleClick = (e) => {
     e.preventDefault();
-
+    console.log("this was clicked");
     let idx = e.target.id;
     let search = this.state.logHistory[idx];
     // console.log(search);
@@ -29,8 +30,8 @@ class History extends React.Component {
   };
   render() {
     return (
-      <section id="history_feild">
-        <h2>History</h2>
+      <section id="history_field">
+        <h2 id = "history_title">History</h2>
         {this.state.logHistory.map((item, idx) => {
           return (
             <>
@@ -47,16 +48,12 @@ class History extends React.Component {
                 </Then>
               </If>
               <div className="history_buttons">
-                <Link to="/">
-                  <button
-                    id={idx}
+                <Link to="/"   id={idx}
                     type="button"
-                    className={item[1]}
+                    className={item[1]} 
                     onClick={this.handleClick}
-                    value={item[1]}
-                  >
+                    value={item[1]}>
                     {item[1]}
-                  </button>
                 </Link>
                 <button className="details" onClick={this.toggleModal}>
                   {item[0]}

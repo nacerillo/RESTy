@@ -6,6 +6,7 @@ class Form extends React.Component {
     this.state = {
       url: "input here",
       method: null,
+      selectionMade: false,
       body: "",
     };
   }
@@ -17,7 +18,7 @@ class Form extends React.Component {
   handleSelect = (e) => {
     e.preventDefault();
     let method = e.target.value;
-    this.setState({ method: method });
+    this.setState({ method: method, selectionMade: true });
   };
 
   handleBody = (e) => {
@@ -36,13 +37,13 @@ class Form extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form class = "form" onSubmit={this.handleSubmit}>
           <section id="url_input">
             <lable>
               URL:
               <input type="text" onChange={this.handleURL} />
             </lable>
-            <button id="mybutton" type="submit">
+            <button id="mybutton" type="submit" disabled={!this.state.selectionMade}>
               Go!
             </button>
           </section>
