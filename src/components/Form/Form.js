@@ -37,7 +37,7 @@ class Form extends React.Component {
   render() {
     return (
       <div className = "form-container">
-          <div id="method_select">
+          <div className="method_select">
               <button
                 onClick={this.handleSelect}
                 id="put"
@@ -68,16 +68,16 @@ class Form extends React.Component {
                 className="method"
                 value="DELETE">DELETE</button>      
           </div>
-        <form className = "form" onSubmit={this.handleSubmit}>
-          <div id="url_input">
+        <form className = "form_inputs" onSubmit={this.handleSubmit}>
+          <div className="url_input">
               <input type="text" onChange={this.handleURL} placeholder = "api/url" />
         
   
-            <button id="go_button" type="submit" disabled={!this.state.selectionMade}>
+            <button className="go" type="submit" disabled={!this.state.selectionMade}>
               Go!
             </button>
           </div>  
-          <div id = "text_body">
+          <div className = "text_body">
             <textarea
               type="submit"
               onChange={this.handleBody}

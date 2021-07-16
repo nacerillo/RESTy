@@ -1,8 +1,5 @@
 $bgColor: rgb(204, 200, 200);
 
-body {
-  background: $bgColor;
-  margin: auto;
 
 .form-container {
   align-content: center;
@@ -11,16 +8,19 @@ body {
   align-items:center;
 }
 
-.form{
-  width: 50%;
+.form_inputs{
+  width: 70%;
+
 }
 
-
+.method_select{
+  
 .method{
+  margin: 1rem;
   border: none;
-  border-radius: 2px;
-  margin-left: 1rem;
-  margin-bottom: 1rem;
+  border-radius: 1rem;
+  width:5rem;
+  height:2rem;
 }
 
 .method:hover{
@@ -30,26 +30,42 @@ body {
 .method:focus{
   background-color: hotpink;
 }
+}
 
 
 
-#url_input {
-    text-align: left;
+
+.url_input {
+    text-align: center;
     input {
       margin: 2rem;
-      width: 50%;
+      width: 100%;
       height:2rem;
 
     }
-  #go_button:hover {
+  .go{
+    margin: 1rem;
+    border: none;
+    border-radius: 1rem;
+    width:5rem;
+    height:2rem;
+  .go:hover {
     background-color: rgb(168, 248, 168);
   }
-  #go_button[disabled]{
+  .go[disabled]{
     background-color: grey;
   }
-
 }
-
+}
+.text_body {
+  width:100%;
+  height:20%;
+  margin:2rem;
+  textarea {
+    width:100%;
+    height:100%;
+  }
+}
 
 #output_field {
     margin: 1rem;
@@ -63,6 +79,5 @@ body {
 }
 
 
-}
 
 
