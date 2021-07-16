@@ -1,15 +1,6 @@
-$bgColor: rgb(204, 200, 200);
 
-body {
-  background: $bgColor;
 
-  #url_input {
-    text-align: left;
-    input {
-      margin: 10px;
-      width: 80%;
-    }
-  }
+
 
   #output_field {
     margin: 10px;
@@ -19,8 +10,4 @@ body {
     overflow: scroll;
   }
 
-  #body_input {
-    rows: 1vw;
-    cols: 0.5vw;
-  }
-}
+

@@ -1,12 +1,21 @@
-#history_feild {
+#history_field {
   margin: 10px;
-  width: 40%;
+  width: 50%;
   height: 500px;
 }
-button {
+.button  {
   padding: 10px;
+  width: 5rem;
   margin: 5px;
   border: none;
+  text-align: center;
+}
+.history_buttons {
+  display: flex;
+  justify-content: space-around;
+}
+a{
+  width: 5rem;
   text-align: center;
 }
 .GET {
@@ -25,8 +34,15 @@ button {
   background-color: rgb(247, 206, 129);
   padding: 10px;
 }
+
 .details {
   border: none;
   text-align: center;
   text-decoration: none;
+}
+
+@media (max-width: 800px) {
+  .history_buttons {
+    width: 100%;
+  }
 }

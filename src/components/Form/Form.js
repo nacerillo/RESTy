@@ -77,10 +77,9 @@ class Form extends React.Component {
               Go!
             </button>
           </div>  
-          <div>
+          <div id = "text_body">
             <textarea
               type="submit"
-              id="body_input"
               onChange={this.handleBody}
             ></textarea>
           </div>

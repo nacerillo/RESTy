@@ -24,7 +24,7 @@ body {
 }
 
 .method:hover{
-  background-color: grey;
+  background-color: hotpink;
   cursor: pointer;
 }
 .method:focus{
@@ -41,16 +41,20 @@ body {
       height:2rem;
 
     }
-  #go:hover {
+  #go_button:hover {
+    background-color: rgb(168, 248, 168);
+  }
+  #go_button[disabled]{
     background-color: grey;
   }
+
 }
 
 
 #output_field {
-    margin: 10px;
+    margin: 1rem;
     width: 50%;
-    height: 500px;
+    height: 50rem;
 }
 
 #div_output {
@@ -58,9 +62,7 @@ body {
     overflow: scroll;
 }
 
-#body_input {
-    rows: 1vw;
-    cols: 0.5vw;
-}
 
 }
+
+
